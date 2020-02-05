@@ -1,0 +1,21 @@
+<!doctype HTML>
+<html>
+<script src="https://aframe.io/releases/1.0.0/aframe.min.js"></script>
+<script src="https://raw.githack.com/jeromeetienne/AR.js/2.1.8/aframe/build/aframe-ar.js"></script>
+  <body style='margin : 0px; overflow: hidden;'>
+    <!-- create an a-frame scene with arjs -->
+    <a-scene embedded arjs>
+
+      <!-- indicate that a marker wit the hiro preset will create a box  -->
+      <a-marker 
+        type="pattern"
+        preset="custom" 
+        url="pattern-Screen Shot 2020-02-05 at 2.39.45 PM.patt">
+          <a-box position='0 0.5 0' material='color: yellow;'></a-box>
+      </a-marker>
+
+      <!-- instantiate an external camera -->
+      <a-entity camera></a-entity>
+    </a-scene>
+  </body>
+</html>
