@@ -2,16 +2,30 @@
 <html>
 <script src="https://aframe.io/releases/1.0.0/aframe.min.js"></script>
 <script src="https://raw.githack.com/jeromeetienne/AR.js/2.1.8/aframe/build/aframe-ar.js"></script>
+
+<!-- import events -->
+<script src="https://rawgit.com/nicolocarpignoli/nicolocarpignoli.github.io/master/ar-click-events/events.js"></script>
+
   <body style='margin : 0px; overflow: hidden;'>
     <!-- create an a-frame scene with arjs -->
     <a-scene embedded arjs>
 
-      <!-- indicate that a marker wit the hiro preset will create a box  -->
+      <!-- indicate that a marker with the custom preset will create a box  -->
       <a-marker 
+        markerhandler
+        emitevents="true"
+        cursor="rayOrigin: mouse"
+        id="cat-marker"
         type="pattern"
         preset="custom" 
-        url="./mitt-pattern.patt">
-          <a-box position='0 0.5 0' material='color: yellow;'></a-box>
+        url="./imgs/mitt-pattern.patt">
+
+        <!-- Define what entity appears with this specific marker -->
+          <a-entity 
+            obj-model="obj: url(./imgs/cat/cat.obj); mtl: url(./imgs/cat/cat.mtl)" 
+            scale="0.03 0.03 0.03"
+            rotation="270 0 0">
+          </a-entity>
       </a-marker>
 
       <!-- instantiate an external camera -->
